@@ -1,0 +1,45 @@
+What would you like to do?
+    
+    View All Employees
+        List of all Employees
+        (id, first_name, last_name, title, department, salary, manager)
+    
+    Add Employee (Should say "Added 'employee name' to the database" once completed)
+        What is the employee's first name?
+        What is the employee's last name?
+        What is the employee's role?
+            Sales Lead
+            Salesperson
+            Lead Engineer
+            Software Engineer
+            Account Manager
+            Accountant
+            Legal Team Lead
+            Lawyer
+        Who is the employee's manager?
+            List of managers (include none)
+    
+    Update Employee Role (Should say "Updated employee's role" once completed)
+        Which employee's role do you want to update?
+            List of Employees
+                Which role do you want to assign the selected employee?
+                    List of roles
+
+    View All Roles (Should say "Added 'role' to database" once completed)
+        List of all Roles
+        (id, title, department, salary)
+
+    Add Role 
+        What is the name of the role?
+        What is the Salary of the role?
+        Which department does the role belong to?
+            List of departments
+
+    View All Departments
+        List of all departments
+        (id, name)
+
+    Add Department (Should say "Added department to database" once completed)
+        What is the name of the department?
+        
+    Quit
