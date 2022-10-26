@@ -37,6 +37,7 @@ startApp = () => {
           "Add Role",
           "View All Departments",
           "Add Department",
+          "Quit",
         ],
       },
     ])
@@ -64,8 +65,8 @@ startApp = () => {
           addDepartment();
           break;
         default:
-          connection.end();
           console.log("Closing Program");
+          db.end();
           return;
       }
     });
@@ -145,3 +146,56 @@ function addEmployee() {
     });
   });
 }
+
+function updateEmployeeRole() {
+  db.query(`SELECT * FROM roles;`, (err, res) => {
+    if (err) throw err;
+    let roles = res.map((roles) => ({
+      name: roles.title,
+      value: roles.id,
+    }));
+
+    db.query(`SELECT * FROM employees;`, (err, res) => {
+      if (err) throw err;
+      let employees = res.map((employees) => ({
+        name: employees.first_name + " " + employees.last_name,
+        value: employees.id,
+      }));
+      employees.push("none");
+
+      inquirer
+        .prompt([
+          {
+            type: "list",
+            name: "employee",
+            message: "Which emmployee's role do you want to change?",
+            choices: employees,
+          },
+          {
+            type: "list",
+            name: "role",
+            message: "Which role do you want to assign the selected employee?",
+            choices: roles,
+          },
+        ])
+        .then((response) => {
+          db.query(
+            "UPDATE employees SET ? WHERE ?",
+            [
+              {
+                role_id: response.role,
+              },
+              {
+                id: response.employee,
+              },
+            ],
+            (err, res) => {
+              if (err) throw err;
+              console.log("Updated employee's role");
+              startApp();
+            }
+          );
+        });
+    });
+  });
+};
