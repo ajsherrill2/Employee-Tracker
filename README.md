@@ -37,6 +37,10 @@ npm i dotenv
 npm i console.table
 ```
 
+Please Run "SOURCE db/schema.sql;" atleast once in your MySQL terminal atleast once.
+
+Please change ".env.EXAMPLE" to ".env" and provide personal DB_PASSWORD.
+
 ## Usage
 
 Direct your terminal to the repository root directory and run this command line to initiate application:
