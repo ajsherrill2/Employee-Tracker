@@ -1,17 +1,18 @@
 // Imports
 const inquirer = require("inquirer");
-const mysql = require("mysql");
-const cTable = require("console.table");
+const mysql = require("mysql2");
+require("dotenv").config();
+require("console.table");
 
 // Connect to database
 const db = mysql.createConnection(
   {
     host: "localhost",
     // MySQL username,
-    user: "root",
+    user: process.env.DB_USER,
     // MySQL password
-    password: "Ghostsakai#128",
-    database: "employee_db",
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
   },
   console.log(`Connected to the employee_db database.`)
 );
