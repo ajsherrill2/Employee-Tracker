@@ -2,7 +2,7 @@
 
 ## Description
 
-In this Project ...
+In this Project I created a terminal application using inquirer and MySQL so that a user can view, add, and update data pertaining to the database of employees. I learned to create unique CRUD operations in combination with clean terminal prompts. The user can not only talk to the database but also view its contents via console tables, fear not queries are protected via preffered statements.
 
 ## Table of Contents
 
@@ -12,7 +12,6 @@ In this Project ...
 - [License](#license)
 - [Badges](#Badges)
 - [Features](#Features)
-- [Tests](#Tests)
 - [Questions](#Questions)
 
 ## Installation
@@ -30,18 +29,20 @@ npm init -y
 npm install
 ```
 
-Run this command line in your terminal to install inquirer:
-
+Additional installations (inquirer, mysql2, dotenv, and console.table)
 ```
 npm i inquirer@8.2.4
+npm i mysql2
+npm i dotenv
+npm i console.table
 ```
 
 ## Usage
 
-Direct your terminal to the /Develop directory and run this command line to initiate application:
+Direct your terminal to the repository root directory and run this command line to initiate application:
 
 ```
-node index.js
+npm start
 ```
 
 Watch this short video demonstration [here]()
@@ -49,6 +50,8 @@ Watch this short video demonstration [here]()
 ## Credits
 
 Collaborators:
+
+Shawn Tschoepe - https://github.com/shawn220a
 
 ## License
 
@@ -64,7 +67,13 @@ This application is covered under the MIT license.
 
 ## Features
 
-## Tests
+Features you will find in this app iclude:
+
+- Viewing joined and grouped tables
+
+- Adding data to a database via terminal prompts
+
+- Updating data sets via terminal prompts
 
 ## Questions
 
