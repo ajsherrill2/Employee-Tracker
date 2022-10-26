@@ -198,4 +198,102 @@ function updateEmployeeRole() {
         });
     });
   });
-};
+}
+
+function viewAllRoles() {
+  db.query(
+    "SELECT roles.id, roles.title, departments.dep_name AS department, roles.salary FROM roles JOIN departments ON roles.department_id = departments.id;",
+    (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      startApp();
+    }
+  );
+}
+
+function addRole() {
+  db.query("SELECT * FROM departments;", (err, res) => {
+    if (err) throw err;
+    let departments = res.map((departments) => ({
+      name: departments.dep_name,
+      value: departments.id,
+    }));
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "title",
+          message: "What is the name of the role?",
+        },
+        {
+          type: "input",
+          name: "salary",
+          message: "What is the Salary of the role?",
+          validate: (numInput) => {
+            if (isNaN(numInput)) {
+              console.log("Please enter a number!");
+              return false;
+            } else {
+              return true;
+            }
+          },
+        },
+        {
+          type: "list",
+          name: "department",
+          message: "Which department does the role belong to?",
+          choices: departments,
+        },
+      ])
+      .then((response) => {
+        db.query(
+          "INSERT INTO roles SET ?",
+          {
+            title: response.title,
+            salary: response.salary,
+            department_id: response.department,
+          },
+          (err, res) => {
+            if (err) throw err;
+            console.log(`Added ${response.title} to database`);
+            startApp();
+          }
+        );
+      });
+  });
+}
+
+function viewAllDepartments() {
+  db.query(
+    "SELECT departments.id, departments.dep_name AS name FROM departments;",
+    (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      startApp();
+    }
+  );
+}
+
+function addDepartment() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "department",
+        message: "What is the name of the department?",
+      },
+    ])
+    .then((response) => {
+      db.query(
+        "INSERT INTO departments SET ?",
+        {
+          dep_name: response.department,
+        },
+        (err, res) => {
+          if (err) throw err;
+          console.log("Added department to database");
+          startApp();
+        }
+      );
+    });
+}
