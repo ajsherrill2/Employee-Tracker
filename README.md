@@ -49,7 +49,7 @@ Direct your terminal to the repository root directory and run this command line 
 npm start
 ```
 
-Watch this short video demonstration [here](https://drive.google.com/file/d/1ssy0ZWvKkXjYJdExQD5OldhlJrdBi9Dj/view)
+Watch this short video demonstration [here](https://drive.google.com/file/d/19F2IVFa9U3DrifBAJGgX6bmSK_7yhEPD/view)
 
 ## Credits
 
