@@ -20,7 +20,7 @@ To Install:
 
 Install node.js lts
 
-Clone the repository from GitHub (https://github.com/ajsherrill2/Employee-Traker.git/).
+Clone the repository from GitHub (https://github.com/ajsherrill2/Employee-Tracker.git).
 
 Run these command lines in your terminal to install necessary dependencies:
 
